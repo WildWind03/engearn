@@ -1,0 +1,39 @@
+version: '2.3'
+services:
+  db:
+    image: postgres:12-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: engearn
+      POSTGRES_USER: engearn
+    ports:
+      - "12345:5432"
+    volumes:
+      - db-volume:/var/lib/postgresql/data
+
+  hazelcast:
+    image: hazelcast/hazelcast:3.12.2
+    restart: always
+    environment:
+      JAVA_OPTS: -Dhazelcast.config=/opt/hazelcast/config_ext/hazelcast.xml
+    ports:
+      - "32770:5701"
+    networks:
+      - engearn-network
+    volumes:
+      - ${ENGEARH_HOME}/docker/hazelcast:/opt/hazelcast/config_ext
+
+  hazelcast-managment:
+    image: hazelcast/management-center:3.12.2
+    restart: always
+    ports:
+      - "32772:8080"
+    networks:
+      - engearn-network
+
+networks:
+  engearn-network:
+    driver: bridge
+
+volumes:
+  db-volume:
