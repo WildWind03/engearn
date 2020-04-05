@@ -1,4 +1,4 @@
-package ru.chirikhin.engearn.network.volabulary;
+package ru.chirikhin.engearn.vocabulary;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +13,7 @@ public class VocabularyController {
     private final VocabularyService vocabularyService;
 
     @PostMapping
-    public void addWord(@RequestBody AddWordRequest addWordRequest) {
-        vocabularyService.addWord(addWordRequest.getWord());
+    public void addWord(@RequestBody Word word) {
+        vocabularyService.addWord(word);
     }
 }

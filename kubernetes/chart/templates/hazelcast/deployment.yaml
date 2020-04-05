@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hazelcast-deployment
+  labels:
+    app: hazelcast-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hazelcast-app
+  template:
+    metadata:
+      labels:
+        app: hazelcast-app
+    spec:
+      containers:
+        - name: hazelcast-app
+          image: usergreat03/engearn-hazelcast:hazelcast
+          ports:
+            - containerPort: 32770

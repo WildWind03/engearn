@@ -5,7 +5,7 @@
     </group>
     <license-key>****</license-key>
     <management-center enabled="true" scripting-enabled="true" update-interval="3">
-        <url>http://hazelcast-managment:8080/hazelcast-mancenter</url>
+        <url>http://hazelcast-managment:30245/hazelcast-mancenter</url>
         <mutual-auth enabled="false"/>
     </management-center>
     <security enabled="false">

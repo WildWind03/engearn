@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hazelcast-managment-deployment
+  labels:
+    app: hazelcast-managment-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hazelcast-managment-app
+  template:
+    metadata:
+      labels:
+        app: hazelcast-managment-app
+    spec:
+      containers:
+        - name: hazelcast-managment-app
+          image: hazelcast/management-center:3.12.2
+          ports:
+            - containerPort: 32772

@@ -1,18 +1,17 @@
-package ru.chirikhin.engearn.network.volabulary;
+package ru.chirikhin.engearn.vocabulary;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.chirikhin.engearn.model.Word;
 
 @Service
 @AllArgsConstructor
 class VocabularyService {
 
-    private final WordDao wordDao;
+    private final WordRepository wordRepository;
 
     @Transactional
     public void addWord(Word word) {
-        wordDao.save(word);
+        wordRepository.save(word);
     }
 }

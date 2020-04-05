@@ -1,4 +1,4 @@
-package ru.chirikhin.engearn.conf;
+package ru.chirikhin.engearn.postgres;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 @Configuration
-public class HibernateConfiguration {
+public class PostgresConfiguration {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSourceConfig = new DriverManagerDataSource();

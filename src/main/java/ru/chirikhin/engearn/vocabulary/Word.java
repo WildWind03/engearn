@@ -1,4 +1,4 @@
-package ru.chirikhin.engearn.model;
+package ru.chirikhin.engearn.vocabulary;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Category {
+class Word {
     @Id
-    private String name;
+    private String value;
 }
