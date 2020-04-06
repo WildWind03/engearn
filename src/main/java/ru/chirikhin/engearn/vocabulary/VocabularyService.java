@@ -12,6 +12,15 @@ class VocabularyService {
 
     @Transactional
     public void addWord(Word word) {
-        wordRepository.save(word);
+        WordEntity wordEntity = new WordEntity();
+        wordEntity.setValue(word.getValue());
+        wordEntity.setCategory(buildCategoryEntity(word.getCategory()));
+        wordRepository.save(wordEntity);
+    }
+
+    private CategoryEntity buildCategoryEntity(Category category) {
+        CategoryEntity categoryEntity = new CategoryEntity();
+        categoryEntity.setName(category.getName());
+        return categoryEntity;
     }
 }
